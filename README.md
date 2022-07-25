@@ -43,6 +43,15 @@ By default, `commit-and-tag-version` assumes you're working in a NodeJS based pr
 
 That said, if you find your self asking [How can I use commit-and-tag-version for additional metadata files, languages or version files?](#can-i-use-commit-and-tag-version-for-additional-metadata-files-languages-or-version-files) – these configuration options will help!
 
+### Gradle Support (Java/Kotlin)
+
+If you are using Gradle, then just point to your `build.gradle` file (or `build.gradle.kts` if using Kotlin DSL).
+
+```sh
+commit-and-tag-version --packageFiles build.gradle --bumpFiles build.gradle
+```
+
+
 ## Installing `commit-and-tag-version`
 
 ### As a local `npm run` script
