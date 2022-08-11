@@ -122,7 +122,7 @@ You can override both [parser](https://github.com/conventional-changelog/convent
 
 ```json
 {
-  "standard-version": {
+  "commit-and-tag-version": {
     "writerOpts": {
       "commitsSort": false
     }
@@ -330,7 +330,9 @@ If you do not want to have any tag prefix you can use the `-t` flag and provide 
 
 ### Tag replacement
 
-If you've already run `standard-version` when creating your release, you may want to alter the release content and changelog without bumping the version, by using `standard-version --skip.bump`. By default, tagging with an already existing tag make `git` fails. You can add the `--tag-force` flag to make use of `-f` option when calling `git tag`, then the existing version tag will be replaced.
+If you've already run `commit-and-tag-version` when creating your release, you may want to alter the release content and changelog without bumping
+the version, by using `commit-and-tag-version --skip.bump`. By default, tagging with an already existing tag make `git` fails.
+You can add the `--tag-force` flag to make use of `-f` option when calling `git tag`, then the existing version tag will be replaced.
 
 ### CLI Help
 
@@ -344,11 +346,11 @@ commit-and-tag-version --help
 ## Code Usage
 
 ```js
-const standardVersion = require("commit-and-tag-version");
+const commitAndTagVersion = require("commit-and-tag-version");
 
 // Options are the same as command line, except camelCase
-// standardVersion returns a Promise
-standardVersion({
+// commitAndTagVersion returns a Promise
+commitAndTagVersion({
   noVerify: true,
   infile: "docs/CHANGELOG.md",
   silent: true,
