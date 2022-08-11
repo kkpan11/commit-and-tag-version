@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.1.0](https://github.com/absolute-version/commit-and-tag-version/compare/v10.0.1...v10.1.0) (2022-08-11)
+
+
+### Features
+
+* **options:** Expose parser and writer options from `conventional-commits-parser` and `conventional-commits-writer` ([185a461](https://github.com/absolute-version/commit-and-tag-version/commit/185a461acc1caf947bf78dd2185f4687afad66fc))
+* **updater:** add Gradle support ([0cf439f](https://github.com/absolute-version/commit-and-tag-version/commit/0cf439fe4047ffa10d21196714c25517535b6302))
+
+
+### Bug Fixes
+
+* use correct param for dryRun check ([300b907](https://github.com/absolute-version/commit-and-tag-version/commit/300b90777c5c8c9cca15f69122af1d41981ca47d))
+
 ### [10.0.1](https://github.com/absolute-version/commit-and-tag-version/compare/v10.0.0...v10.0.1) (2022-05-28)
 
 
