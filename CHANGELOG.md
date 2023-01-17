@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.0.0](https://github.com/absolute-version/commit-and-tag-version/compare/v10.1.0...v11.0.0) (2023-01-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v5. This is technically a breaking change for anyone relying on the exact formatting of the changelog, as it ensures that versions are always written with H2 headers.
+
+### Bug Fixes
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v5 ([b38e900](https://github.com/absolute-version/commit-and-tag-version/commit/b38e900c2b8577b492b4bb42e88d327e80e663a4))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v5. This is technically a breaking change for anyone relying on the exact formatting of the changelog, as it ensures that versions are always written with H2 headers. ([ffa799a](https://github.com/absolute-version/commit-and-tag-version/commit/ffa799aa335f9b912a224336cf2ea2537b8aa310))
+
 ## [10.1.0](https://github.com/absolute-version/commit-and-tag-version/compare/v10.0.1...v10.1.0) (2022-08-11)
 
 
