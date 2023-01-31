@@ -73,6 +73,11 @@ const yargs = require('yargs')
     type: 'string',
     default: defaults.tagPrefix
   })
+  .option('release-count', {
+    describe: 'How many releases of changelog you want to generate. It counts from the upcoming release. Useful when you forgot to generate any previous changelog. Set to 0 to regenerate all.',
+    type: 'number',
+    default: defaults.releaseCount
+  })
   .option('tag-force', {
     describe: 'Allow tag replacement',
     type: 'boolean',
