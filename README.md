@@ -343,6 +343,27 @@ If you've already run `commit-and-tag-version` when creating your release, you m
 the version, by using `commit-and-tag-version --skip.bump`. By default, tagging with an already existing tag make `git` fails.
 You can add the `--tag-force` flag to make use of `-f` option when calling `git tag`, then the existing version tag will be replaced.
 
+### Generate changelogs for old releases
+
+Normally only the changelog for the last release will be generated and prepended to the `changelog.md`. If you want to generate changelogs for previous releases you can do so by setting the `releaseCount` option like described [here](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-core#releasecount).
+
+When setting releaseCount=0 the whole changelog gets regenerated and replaced.
+
+You can set the option either in the`.versionrc` file or inside `package.json` like below
+
+```json
+//.versionrc
+{
+  "releaseCount": 0
+}
+
+//package.json
+
+"commit-and-tag-version": {
+  "releaseCount": 0
+}
+```
+
 ### CLI Help
 
 ```sh
