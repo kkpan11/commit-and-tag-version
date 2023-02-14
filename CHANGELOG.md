@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.1.0](https://github.com/absolute-version/commit-and-tag-version/compare/v11.0.0...v11.1.0) (2023-02-14)
+
+
+### Features
+
+* Expose release count option ([40d27f8](https://github.com/absolute-version/commit-and-tag-version/commit/40d27f8782c0621f6ec0ab796b4ae674ec6d43c8))
+* replace the changelog if releaseCount = 0 ([d18af90](https://github.com/absolute-version/commit-and-tag-version/commit/d18af9040fdc2a5798681fa747a43a71cb75e47b))
+
+
+### Bug Fixes
+
+* ensure git signatures are not present ([268800b](https://github.com/absolute-version/commit-and-tag-version/commit/268800b3c5e01993902cb0df0d123ac8b3388359))
+
 ## [11.0.0](https://github.com/absolute-version/commit-and-tag-version/compare/v10.1.0...v11.0.0) (2023-01-17)
 
 
