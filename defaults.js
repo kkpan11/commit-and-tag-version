@@ -8,6 +8,7 @@ const defaults = {
   commitAll: false,
   silent: false,
   tagPrefix: 'v',
+  releaseCount: 1,
   scripts: {},
   skip: {},
   dryRun: false,
