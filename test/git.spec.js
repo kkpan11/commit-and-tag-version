@@ -397,6 +397,14 @@ describe('git', function () {
         .should.match(/npm publish/)
     })
 
+    it('can display publish hints with custom npm client name', async function () {
+      const flush = mock({ bump: 'patch' })
+      await exec('--npmClient yarn')
+      flush()
+        .stdout.join('')
+        .should.match(/yarn publish/)
+    })
+
     it('does not display `npm publish` if the package is private', async function () {
       writePackageJson('1.0.0', { private: true })
       const flush = mock({ bump: 'patch' })

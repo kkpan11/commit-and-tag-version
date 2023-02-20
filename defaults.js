@@ -15,7 +15,7 @@ const defaults = {
   tagForce: false,
   gitTagFallback: true,
   preset: require.resolve('conventional-changelog-conventionalcommits'),
-  npmClient: 'npm',
+  npmClient: 'npm'
 }
 
 /**
