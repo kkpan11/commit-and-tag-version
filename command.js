@@ -121,6 +121,11 @@ const yargs = require('yargs')
     type: 'string',
     describe: 'Name of the package from which the tags will be extracted'
   })
+  .option('npmClient', {
+    type: 'string',
+    default: defaults.npmClient,
+    describe: 'Show publish hint with the specified npm client'
+  })
   .check((argv) => {
     if (typeof argv.scripts !== 'object' || Array.isArray(argv.scripts)) {
       throw Error('scripts must be an object')
