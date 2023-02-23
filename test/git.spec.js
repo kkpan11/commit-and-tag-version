@@ -399,7 +399,7 @@ describe('git', function () {
 
     it('can display publish hints with custom npm client name', async function () {
       const flush = mock({ bump: 'patch' })
-      await exec('--npmClient yarn')
+      await exec('--npmPublishHint "yarn publish"')
       flush()
         .stdout.join('')
         .should.match(/yarn publish/)
