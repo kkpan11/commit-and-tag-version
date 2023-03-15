@@ -14,7 +14,8 @@ const defaults = {
   dryRun: false,
   tagForce: false,
   gitTagFallback: true,
-  preset: require.resolve('conventional-changelog-conventionalcommits')
+  preset: require.resolve('conventional-changelog-conventionalcommits'),
+  npmPublishHint: undefined
 }
 
 /**
