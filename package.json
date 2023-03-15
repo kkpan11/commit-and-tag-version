@@ -31,6 +31,7 @@
     "standard"
   ],
   "author": "Ben Coe <ben@npmjs.com>",
+  "contributors": ["Timothy Jones <timothy.l.jones@gmail.com> (https://github.com/TimothyJones)"],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/absolute-version/commit-and-tag-version/issues"
