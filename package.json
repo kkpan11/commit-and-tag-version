@@ -1,6 +1,6 @@
 {
   "name": "commit-and-tag-version",
-  "version": "11.1.0",
+  "version": "11.2.0",
   "description": "replacement for `npm version` with automatic CHANGELOG generation",
   "bin": "bin/cli.js",
   "scripts": {
@@ -31,7 +31,9 @@
     "standard"
   ],
   "author": "Ben Coe <ben@npmjs.com>",
-  "contributors": ["Timothy Jones <timothy.l.jones@gmail.com> (https://github.com/TimothyJones)"],
+  "contributors": [
+    "Timothy Jones <timothy.l.jones@gmail.com> (https://github.com/TimothyJones)"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/absolute-version/commit-and-tag-version/issues"

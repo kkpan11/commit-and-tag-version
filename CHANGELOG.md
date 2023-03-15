@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.2.0](https://github.com/absolute-version/commit-and-tag-version/compare/v11.1.0...v11.2.0) (2023-03-15)
+
+
+### Features
+
+* implement detect pm name ([174a8bd](https://github.com/absolute-version/commit-and-tag-version/commit/174a8bd00106dcc2a6b1c5bcb75bf3fbfd0317da))
+* support config npmClient ([c33686a](https://github.com/absolute-version/commit-and-tag-version/commit/c33686aec080162645466ed962d64133f71e4214))
+* Support customizing the npm publish hint message with a new option: `npmPublishHint` ([1f77110](https://github.com/absolute-version/commit-and-tag-version/commit/1f77110deefa8a394a37c421eb3d313f6c87aea5))
+
 ## [11.1.0](https://github.com/absolute-version/commit-and-tag-version/compare/v11.0.0...v11.1.0) (2023-02-14)
 
 
