@@ -15,7 +15,44 @@ A utility for versioning using [semver](https://semver.org/) and CHANGELOG gener
 
 _Having problems? Want to contribute? Join us on the [node-tooling community Slack](http://devtoolscommunity.herokuapp.com)_.
 
-_How It Works:_
+- [Commit and Tag Version](#commit-and-tag-version)
+    - [How It Works:](#how-it-works)
+    - [`bumpFiles`, `packageFiles` and `updaters`](#bumpfiles-packagefiles-and-updaters)
+    - [Gradle Support (Java/Kotlin)](#gradle-support-javakotlin)
+  - [Installing `commit-and-tag-version`](#installing-commit-and-tag-version)
+    - [As a local `npm run` script](#as-a-local-npm-run-script)
+    - [As global `bin`](#as-global-bin)
+    - [Using `npx`](#using-npx)
+  - [Configuration](#configuration)
+    - [Customizing CHANGELOG Generation](#customizing-changelog-generation)
+    - [Deeper customization](#deeper-customization)
+  - [CLI Usage](#cli-usage)
+    - [First Release](#first-release)
+    - [Cutting Releases](#cutting-releases)
+    - [Release as a Pre-Release](#release-as-a-pre-release)
+    - [Release as a Target Type Imperatively (`npm version`-like)](#release-as-a-target-type-imperatively-npm-version-like)
+    - [Prevent Git Hooks](#prevent-git-hooks)
+    - [Signing Commits and Tags](#signing-commits-and-tags)
+    - [Lifecycle Scripts](#lifecycle-scripts)
+    - [Skipping Lifecycle Steps](#skipping-lifecycle-steps)
+    - [Committing Generated Artifacts in the Release Commit](#committing-generated-artifacts-in-the-release-commit)
+    - [Dry Run Mode](#dry-run-mode)
+    - [Prefix Tags](#prefix-tags)
+    - [Tag replacement](#tag-replacement)
+    - [Generate changelogs for old releases](#generate-changelogs-for-old-releases)
+    - [CLI Help](#cli-help)
+  - [Code Usage](#code-usage)
+  - [FAQ](#faq)
+    - [How is `commit-and-tag-version` different from `semantic-release`?](#how-is-commit-and-tag-version-different-from-semantic-release)
+    - [Should I always squash commits when merging PRs?](#should-i-always-squash-commits-when-merging-prs)
+    - [Can I use `commit-and-tag-version` for additional metadata files, languages or version files?](#can-i-use-commit-and-tag-version-for-additional-metadata-files-languages-or-version-files)
+      - [Custom `updater`s](#custom-updaters)
+        - [`readVersion(contents = string): string`](#readversioncontents--string-string)
+        - [`writeVersion(contents = string, version: string): string`](#writeversioncontents--string-version-string-string)
+  - [License](#license)
+
+
+### How It Works:
 
 1. Follow the [Conventional Commits Specification](https://conventionalcommits.org) in your repository.
 2. When you're ready to release, run `commit-and-tag-version`.
