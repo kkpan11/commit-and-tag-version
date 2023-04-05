@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.2.1](https://github.com/absolute-version/commit-and-tag-version/compare/v11.2.0...v11.2.1) (2023-04-05)
+
+
+### Bug Fixes
+
+* **dep:** add stringify-package to project source, removing the deprecation warning on npm install ([#65](https://github.com/absolute-version/commit-and-tag-version/issues/65)) ([3a959a7](https://github.com/absolute-version/commit-and-tag-version/commit/3a959a7eba86ad42b98592167df7c67f00b661a0))
+
 ## [11.2.0](https://github.com/absolute-version/commit-and-tag-version/compare/v11.1.0...v11.2.0) (2023-03-15)
 
 
