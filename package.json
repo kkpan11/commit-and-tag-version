@@ -2,14 +2,18 @@
   "name": "commit-and-tag-version",
   "version": "11.2.0",
   "description": "replacement for `npm version` with automatic CHANGELOG generation",
-  "bin": "bin/cli.js",
+  "bin": "dist/bin/cli.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "fix": "eslint . --fix",
     "posttest": "eslint .",
     "test": "nyc mocha --timeout=30000",
     "test:unit": "mocha --exclude test/git.spec.js",
     "coverage": "nyc report --reporter=lcov",
-    "release": "bin/cli.js"
+    "release": "dist/bin/cli.js",
+    "build": "npx tsc && tsup"
   },
   "nyc": {
     "exclude": [
@@ -32,7 +36,8 @@
   ],
   "author": "Ben Coe <ben@npmjs.com>",
   "contributors": [
-    "Timothy Jones <timothy.l.jones@gmail.com> (https://github.com/TimothyJones)"
+    "Timothy Jones <timothy.l.jones@gmail.com> (https://github.com/TimothyJones)",
+    "Alec Helmturner <alec@helmturner.dev> (https://github.com/helmturner)"
   ],
   "license": "ISC",
   "bugs": {
@@ -70,6 +75,22 @@
     "shelljs": "^0.8.4",
     "std-mocks": "^1.0.1",
     "strip-ansi": "^6.0.0",
+    "tsup": "^6.6.3",
     "typescript": "^4.9.5"
+  },
+  "tsup": {
+    "minify": true,
+    "minifyIdentifiers": false,
+    "treeshake": true,
+    "tsconfig": "tsconfig.json",
+    "dts": true,
+    "entry": [
+      "./src/index.ts"
+    ],
+    "outDir": "./dist",
+    "format": [
+      "esm",
+      "cjs"
+    ]
   }
 }
