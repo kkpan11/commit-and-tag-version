@@ -1,6 +1,6 @@
-import { getConfiguration as getConfigFile } from "lib/configuration";
-import { isin } from "type-helpers";
-import type { PrettyPrint } from "type-helpers";
+import { getConfiguration as getConfigFile } from "../configuration";
+import { isin } from "../../type-helpers";
+import type { PrettyPrint } from "../../type-helpers";
 
 type Release = "minor" | "major" | "patch";
 type Task = "changelog" | "commit" | "tag";
