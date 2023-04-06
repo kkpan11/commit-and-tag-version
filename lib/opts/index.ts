@@ -117,11 +117,6 @@ export const getMergedConfig = async (
     config[key] = catvConfig[key];
   }
 
-  return config;
-};
-
-export const mergeJsonOptions = async (): Promise<Partial<CatVConfig>> => {
-  const config1 = await getMergedConfig();
   const config2 = await getConfigFile();
-  return { ...config1, ...config2 };
+  return { ...config, ...config2 };
 };
