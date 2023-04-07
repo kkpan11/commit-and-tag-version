@@ -1,4 +1,3 @@
-// @ts-nocheck
 /*
 I haven't been able to find API docs for yargs that explain the runtime semantics thoroughly enough to describe the types,
 and the types give do not appear to agree with the usage below. This leads me to believe the types are either incorrect or incomplete,
@@ -137,7 +136,7 @@ const yargs = require('yargs')
     default: defaults.npmPublishHint,
     describe: 'Customized publishing hint'
   })
-  .check((argv) => {
+  .check((argv: any) => {
     if (typeof argv.scripts !== 'object' || Array.isArray(argv.scripts)) {
       throw Error('scripts must be an object')
     } else if (typeof argv.skip !== 'object' || Array.isArray(argv.skip)) {
@@ -159,11 +158,12 @@ const yargs = require('yargs')
   .wrap(97)
 
 Object.keys(spec.properties).forEach((propertyKey) => {
-  const property = spec.properties[propertyKey as keyof typeof spec.properties]
+  const propName = propertyKey as keyof typeof spec.properties;
+  const property = spec.properties[propName]
   yargs.option(propertyKey, {
     type: property.type,
     describe: property.description,
-    default: defaults[propertyKey] ? defaults[propertyKey] : property.default,
+    default: defaults[propName] ? defaults[propName] : property.default,
     group: 'Preset Configuration:'
   })
 })
