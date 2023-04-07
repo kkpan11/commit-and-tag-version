@@ -1,43 +1,5 @@
 import spec from "conventional-changelog-config-spec/versions/2.1.0/schema.json";
-
-type Defaults = Readonly<
-  {
-    infile: string;
-    firstRelease: boolean;
-    sign: boolean;
-    noVerify: boolean;
-    commitAll: boolean;
-    silent: boolean;
-    tagPrefix: string;
-    releaseCount: number;
-    scripts: {
-      prerelease?: string;
-      prebump?: string;
-      postbump?: string;
-      prechangelog?: string;
-      postchangelog?: string;
-      precommit?: string;
-      postcommit?: string;
-      pretag?: string;
-      posttag?: string;
-    };
-    skip: {
-      bump?: boolean;
-      changelog?: boolean;
-      commit?: boolean;
-      tag?: boolean;
-    };
-    dryRun: boolean;
-    tagForce: boolean;
-    gitTagFallback: boolean;
-    preset: string;
-    npmPublishHint: string | undefined;
-    packageFiles: readonly string[];
-    bumpFiles: readonly string[];
-  } & {
-    [key in keyof typeof spec.properties]: typeof spec.properties[key]["default"];
-  }
->;
+import { PrettyPrint } from "type-helpers";
 
 const defaults = {
   infile: "CHANGELOG.md",
@@ -53,7 +15,7 @@ const defaults = {
   dryRun: false,
   tagForce: false,
   gitTagFallback: true,
-  preset: require.resolve('conventional-changelog-conventionalcommits'),
+  preset: require.resolve("conventional-changelog-conventionalcommits"),
   npmPublishHint: undefined,
   /**
    * Sets the default for `header` (provided by the spec) for backwards
@@ -69,17 +31,22 @@ const defaults = {
     "package-lock.json",
     "npm-shrinkwrap.json",
   ],
-} as const satisfies Partial<Readonly<Defaults>>;
+} as const;
+
+type Defaults = PrettyPrint<
+  typeof defaults &
+    Readonly<{
+      [key in keyof typeof spec.properties]: typeof spec.properties[key]["default"];
+    }>
+>;
 
 /**
  * Merge in defaults provided by the spec
  */
 Object.keys(spec.properties).forEach((propertyKey) => {
-  const k: keyof typeof spec.properties =
-    propertyKey as keyof typeof spec.properties;
-  const property = spec.properties[k];
-  // @ts-expect-error - we know that the key exists
-  defaults[k] = property.default;
+  const property = spec.properties[propertyKey as keyof typeof spec.properties];
+  // @ts-expect-error - We used a const assertion to infer literal types for intellisense, so TS thinks defaults is readonly.
+  defaults[propertyKey] = property.default;
 });
 
-export default defaults as any as Defaults;
+export default defaults as Defaults;
