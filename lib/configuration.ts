@@ -11,7 +11,7 @@ const CONFIGURATION_FILES = [
 ] as const;
 
 export async function getConfiguration () {
-  let config = {} as Partial<CatVConfig>
+  let config: Partial<CatVConfig> = {}
   const configPath = findUp.sync(CONFIGURATION_FILES)
   if (!configPath) {
     return config
