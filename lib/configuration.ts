@@ -1,7 +1,7 @@
 import path from 'path'
 import findUp from 'find-up'
 import { readFileSync } from 'fs'
-import { CatVConfig } from './opts'
+import { Config } from './opts'
 
 const CONFIGURATION_FILES = [
   '.versionrc',
@@ -11,7 +11,7 @@ const CONFIGURATION_FILES = [
 ] as const;
 
 export async function getConfiguration () {
-  let config: Partial<CatVConfig> = {}
+  let config: Partial<Config> = {}
   const configPath = findUp.sync(CONFIGURATION_FILES)
   if (!configPath) {
     return config
