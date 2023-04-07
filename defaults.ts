@@ -1,5 +1,5 @@
 import spec from "conventional-changelog-config-spec/versions/2.1.0/schema.json";
-import { PrettyPrint } from "type-helpers";
+import { PrettyPrint } from "./type-helpers";
 
 const defaults = {
   infile: "CHANGELOG.md",

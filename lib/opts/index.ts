@@ -113,5 +113,9 @@ export const getMergedConfig = async (
   });
 
   const configFromFile = await getConfigFromFile();
-  return { ...(legacyConf ?? {}), ...(modernConf ?? {}), ...(configFromFile ?? {}) };
+  return {
+    ...(legacyConf ?? {}),
+    ...(modernConf ?? {}),
+    ...(configFromFile ?? {}),
+  };
 };
