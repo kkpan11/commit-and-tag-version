@@ -581,7 +581,7 @@ describe('commit-and-tag-version', function () {
 
   it('should exit with error without a package file to bump', async function () {
     mock({ bump: 'patch', pkg: false })
-    
+
     expect(exec({ gitTagFallback: false })).to.be.rejectedWith('no package file found')
   })
 
