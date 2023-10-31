@@ -55,11 +55,13 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "@fintechstudios/eslint-plugin-chai-as-promised": "^3.1.0",
     "chai": "^4.3.10",
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.52.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-mocha": "^10.2.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.1.1",
     "mocha": "^10.2.0",
