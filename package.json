@@ -69,7 +69,7 @@
     "mockery": "^2.1.0",
     "nyc": "^15.1.0",
     "shelljs": "^0.8.5",
-    "std-mocks": "^1.0.1",
+    "std-mocks": "^2.0.0",
     "strip-ansi": "^6.0.0"
   }
 }
