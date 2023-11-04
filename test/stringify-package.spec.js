@@ -1,5 +1,3 @@
-/* global describe it */
-
 'use strict'
 
 const stringifyPackage = require('../lib/stringify-package')

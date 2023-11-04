@@ -69,7 +69,7 @@ module.exports = async function standardVersion (argv) {
             : false
       }
       break
-    } catch (err) {}
+    } catch (err) {/* This probably shouldn't be empty? */}
   }
   try {
     let version

@@ -1,5 +1,3 @@
-/* global describe it afterEach */
-
 'use strict'
 
 const shell = require('shelljs')

@@ -1,5 +1,3 @@
-/* global describe it */
-
 const mockery = require('mockery')
 const { promises: fsp } = require('fs')
 require('chai').should()

@@ -1,5 +1,3 @@
-/* global describe it beforeEach, afterEach */
-
 const shell = require('shelljs')
 const fs = require('fs')
 
