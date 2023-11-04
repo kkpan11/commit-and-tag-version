@@ -1,50 +1,50 @@
-const mockery = require('mockery')
-const { promises: fsp } = require('fs')
-require('chai').should()
+const mockery = require('mockery');
+const { promises: fsp } = require('fs');
+require('chai').should();
 
-function mockNpm () {
-  mockery.enable({ warnOnUnregistered: false, useCleanCache: true })
-  let lockFile = ''
+function mockNpm() {
+  mockery.enable({ warnOnUnregistered: false, useCleanCache: true });
+  let lockFile = '';
 
   const fsMock = {
     promises: {
       access: async function (path) {
         if (lockFile && path.endsWith(lockFile)) {
-          return true
+          return true;
         }
-        await fsp.access(path)
-      }
-    }
-  }
-  mockery.registerMock('fs', fsMock)
+        await fsp.access(path);
+      },
+    },
+  };
+  mockery.registerMock('fs', fsMock);
   return {
-    setLockFile (file) {
-      lockFile = file
-    }
-  }
+    setLockFile(file) {
+      lockFile = file;
+    },
+  };
 }
 
 describe('utils', function () {
   it('detectPMByLockFile should work', async function () {
-    const { setLockFile } = mockNpm()
-    const { detectPMByLockFile } = require('../lib/detect-package-manager')
+    const { setLockFile } = mockNpm();
+    const { detectPMByLockFile } = require('../lib/detect-package-manager');
 
-    let pm = await detectPMByLockFile()
-    pm.should.equal('npm')
+    let pm = await detectPMByLockFile();
+    pm.should.equal('npm');
 
-    setLockFile('yarn.lock')
-    pm = await detectPMByLockFile()
-    pm.should.equal('yarn')
+    setLockFile('yarn.lock');
+    pm = await detectPMByLockFile();
+    pm.should.equal('yarn');
 
-    setLockFile('package-lock.json')
-    pm = await detectPMByLockFile()
-    pm.should.equal('npm')
+    setLockFile('package-lock.json');
+    pm = await detectPMByLockFile();
+    pm.should.equal('npm');
 
-    setLockFile('pnpm-lock.yaml')
-    pm = await detectPMByLockFile()
-    pm.should.equal('pnpm')
+    setLockFile('pnpm-lock.yaml');
+    pm = await detectPMByLockFile();
+    pm.should.equal('pnpm');
 
-    mockery.deregisterAll()
-    mockery.disable()
-  })
-})
+    mockery.deregisterAll();
+    mockery.disable();
+  });
+});
