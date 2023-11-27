@@ -1,14 +1,49 @@
 {
-  "extends": ["prettier", "eslint:recommended", "plugin:mocha/recommended"],
-  "env": { "node": true, "es6": true },
-  "parserOptions": { "ecmaVersion": 2023 },
-  "plugins": ["mocha", "@fintechstudios/eslint-plugin-chai-as-promised"],
+  "extends": [
+    "prettier",
+    "eslint:recommended"
+  ],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "overrides": [
+    {
+      "env": {
+        "node": true,
+        "es6": true,
+        "jest/globals": true
+      },
+      "files": [
+        "test/**"
+      ],
+      "plugins": [
+        "jest"
+      ],
+      "extends": [
+        "prettier",
+        "eslint:recommended",
+        "plugin:jest/recommended"
+      ],
+      "rules": {
+        "jest/prefer-expect-assertions": "off",
+        "jest/expect-expect": "off"
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2023
+  },
+  "plugins": [
+    "jest"
+  ],
   "rules": {
     "no-var": "error",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "_.*" }],
-    "mocha/max-top-level-suites": "off",
-    "mocha/no-setup-in-describe": "off",
-    "@fintechstudios/chai-as-promised/no-unhandled-promises": "error",
-    "@fintechstudios/chai-as-promised/no-await-in-condition": "error"
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "_.*"
+      }
+    ]
   }
 }
