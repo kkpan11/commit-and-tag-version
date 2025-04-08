@@ -629,6 +629,14 @@ with other package managers for other ecosystems).
 
 When you are ready to release v1.0.0, add `--release-as 1.0.0` to the options.
 
+### Why do my `refactor`, `chore` etc changes not appear in the changelog?
+
+By default, the conventional commits preset is used. This means that only `fix`, `feat` and anything marked as a breaking change will appear in the changelog.
+
+Conventional commits is meant to make it easy for machines to reason about the user-facing changes,
+and the changelog generation makes it easy for humans to consume this information too. 
+Usually, you wouldn't want non-user facing changes like refactor in the changelog. 
+
 ## License
 
 ISC
