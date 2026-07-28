@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [13.1.2](https://github.com/absolute-version/commit-and-tag-version/compare/v13.1.1...v13.1.2) (2026-07-28)
+
+
+### Bug Fixes
+
+* **yaml:** preserve long scalar lines ([#313](https://github.com/absolute-version/commit-and-tag-version/issues/313)) ([8b968bc](https://github.com/absolute-version/commit-and-tag-version/commit/8b968bc1d98d85134c91efe66727bc2e1823a997))
+
 ## [13.1.1](https://github.com/absolute-version/commit-and-tag-version/compare/v13.1.0...v13.1.1) (2026-07-28)
 
 
