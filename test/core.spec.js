@@ -1491,6 +1491,102 @@ describe('cli', function () {
       expect(calledWithContentStr).toEqual(expected);
     });
 
+    describe('multi-module maven pom.xml files', function () {
+      it('bumps version in multi-module Maven `pom.xml` file while preserving revisions', async function () {
+        const expected = fs.readFileSync(
+          './test/mocks/pom-6.4.0-mm.xml',
+          'utf-8',
+        );
+        const filename = 'pom.xml';
+        mock({
+          bump: 'minor',
+          realTestFiles: [
+            {
+              filename,
+              path: './test/mocks/pom-6.3.1-mm.xml',
+            },
+          ],
+        });
+        await exec({
+          packageFiles: [{ filename, type: 'maven' }],
+          bumpFiles: [{ filename, type: 'maven' }],
+        });
+
+        // filePath is the first arg passed to writeFileSync
+        const packageJsonWriteFileSynchCall = findWriteFileCallForPath({
+          writeFileSyncSpy,
+          filename,
+        });
+
+        if (!packageJsonWriteFileSynchCall) {
+          throw new Error(`writeFileSynch not invoked with path ${filename}`);
+        }
+
+        const calledWithContentStr = packageJsonWriteFileSynchCall[1];
+        expect(calledWithContentStr).toEqual(expected);
+      });
+
+      it('throws error in multi-module Maven `pom.xml` file when version is invalid syntax', async function () {
+        const filename = 'pom.xml';
+        mock({
+          bump: 'minor',
+          realTestFiles: [
+            {
+              filename,
+              path: './test/mocks/pom-6.3.1-mm-invalid-syntax.xml',
+            },
+          ],
+        });
+        await exec({
+          packageFiles: [{ filename, type: 'maven' }],
+          bumpFiles: [{ filename, type: 'maven' }],
+        });
+        const expectedLog =
+          'Failed to read the version field in your pom file - unexpected invalid property reference';
+        verifyLogPrinted({ consoleInfoSpy: consoleErrorSpy, expectedLog });
+      });
+
+      it('throws error in multi-module Maven `pom.xml` file when no properties are discovered', async function () {
+        const filename = 'pom.xml';
+        mock({
+          bump: 'minor',
+          realTestFiles: [
+            {
+              filename,
+              path: './test/mocks/pom-6.3.1-mm-no-properties.xml',
+            },
+          ],
+        });
+        await exec({
+          packageFiles: [{ filename, type: 'maven' }],
+          bumpFiles: [{ filename, type: 'maven' }],
+        });
+        const expectedLog =
+          'Failed to read the revision field in your pom file properties - is it present?';
+        verifyLogPrinted({ consoleInfoSpy: consoleErrorSpy, expectedLog });
+      });
+
+      it('throws error in multi-module Maven `pom.xml` file when associated property is missing', async function () {
+        const filename = 'pom.xml';
+        mock({
+          bump: 'minor',
+          realTestFiles: [
+            {
+              filename,
+              path: './test/mocks/pom-6.3.1-mm-missing-revision.xml',
+            },
+          ],
+        });
+        await exec({
+          packageFiles: [{ filename, type: 'maven' }],
+          bumpFiles: [{ filename, type: 'maven' }],
+        });
+        const expectedLog =
+          'Failed to read the revision field in your pom file properties - is it present?';
+        verifyLogPrinted({ consoleInfoSpy: consoleErrorSpy, expectedLog });
+      });
+    });
+
     it('bumps version in Gradle `build.gradle.kts` file', async function () {
       const expected = fs.readFileSync(
         './test/mocks/build-6.4.0.gradle.kts',
