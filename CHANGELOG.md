@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [13.2.0](https://github.com/absolute-version/commit-and-tag-version/compare/v13.1.2...v13.2.0) (2026-09-08)
+
+
+### Features
+
+* **maven:** add support for multi-module pom version resolution ([#340](https://github.com/absolute-version/commit-and-tag-version/issues/340)) ([72f9a02](https://github.com/absolute-version/commit-and-tag-version/commit/72f9a02d7a8e00c8a98dca5720055830e1976e71))
+
+
+### Bug Fixes
+
+* document and support custom writer render functions ([#324](https://github.com/absolute-version/commit-and-tag-version/issues/324)) ([c81ad2f](https://github.com/absolute-version/commit-and-tag-version/commit/c81ad2f214e44f5cfdfde7e9b80f7a82714453d5))
+
 ## [13.1.2](https://github.com/absolute-version/commit-and-tag-version/compare/v13.1.1...v13.1.2) (2026-07-28)
 
 
